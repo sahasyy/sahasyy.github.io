@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@800&display=swap');
+
+:root {
+    --color-bg1: black;
+    --color-bg2: black;
+    --color1: 104, 109, 224;
+    --color2: 126, 214, 223;
+    --color3: 223, 249, 251;
+    --color4: 255, 121, 121;
+    --color5: 149, 175, 192;
+    --color-interactive: 140, 100, 255;
+    --circle-size: 200%;
+    --blending: hard-light;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    background: linear-gradient(40deg, var(--color-bg1), var(--color-bg2));
+}
+
+.container {
+    position: absolute;
+    z-index: 10;
+    user-select: none;
+    width: 100%;
+    padding: 48px;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: left;
+    padding-left: 10px;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+    background: none;
+}
+
+.gradient-bg {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(40deg, var(--color-bg1), var(--color-bg2));
+    top: 0;
+    left: 0;
+}
+
+.gradients-container {
+    filter: url(#goo) blur(30px); /* Reduced blur to improve performance */
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    will-change: transform, opacity;
+}
+
+.g1, .g2, .g3, .g4, .g5 {
+    position: absolute;
+    mix-blend-mode: var(--blending);
+    width: var(--circle-size);
+    height: var(--circle-size);
+    top: calc(50% - var(--circle-size) / 2);
+    left: calc(50% - var(--circle-size) / 2);
+    transform-origin: center center;
+}
+
+.g1 {
+    background: radial-gradient(circle at center, rgba(var(--color1), 0.8) 0, rgba(var(--color1), 0) 50%) no-repeat;
+    animation: moveVertical 30s ease infinite;
+}
+
+.g2 {
+    background: radial-gradient(circle at center, rgba(var(--color2), 0.8) 0, rgba(var(--color2), 0) 50%) no-repeat;
+    transform-origin: calc(50% - 300px); /* Adjusted to optimize */
+    animation: moveInCircle 30s reverse infinite;
+}
+
+.g3 {
+    background: radial-gradient(circle at center, rgba(var(--color3), 0.8) 0, rgba(var(--color3), 0) 50%) no-repeat;
+    top: calc(50% - var(--circle-size) / 2 + 150px); /* Adjusted for better performance */
+    left: calc(50% - var(--circle-size) / 2 - 400px); /* Adjusted for better performance */
+    transform-origin: calc(50% + 300px);
+    animation: moveInCircle 50s linear infinite;
+}
+
+.g4 {
+    background: radial-gradient(circle at center, rgba(var(--color4), 0.8) 0, rgba(var(--color4), 0) 50%) no-repeat;
+    transform-origin: calc(50% - 150px); /* Adjusted to optimize */
+    animation: moveHorizontal 45s ease infinite;
+    opacity: 0.7;
+}
+
+.g5 {
+    background: radial-gradient(circle at center, rgba(var(--color5), 0.8) 0, rgba(var(--color5), 0) 50%) no-repeat;
+    width: calc(var(--circle-size) * 1.5); /* Adjusted size */
+    height: calc(var(--circle-size) * 1.5);
+    top: calc(50% - var(--circle-size) / 1.5); /* Adjusted for better performance */
+    left: calc(50% - var(--circle-size) / 1.5);
+    transform-origin: calc(50% - 600px) calc(50% + 150px);
+    animation: moveInCircle 25s ease infinite;
+}
+
+.interactive {
+    position: absolute;
+    background: radial-gradient(circle at center, rgba(var(--color-interactive), 0.8) 0, rgba(var(--color-interactive), 0) 50%) no-repeat;
+    mix-blend-mode: var(--blending);
+    width: 100%;
+    height: 100%;
+    top: -50%;
+    left: -50%;
+    opacity: 0.7;
+    will-change: transform;
+}
+
+@keyframes moveInCircle {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes moveVertical {
+    0% {
+        transform: translateY(-25%);
+    }
+    50% {
+        transform: translateY(25%);
+    }
+    100% {
+        transform: translateY(-25%);
+    }
+}
+
+@keyframes moveHorizontal {
+    0% {
+        transform: translateX(-25%) translateY(-5%);
+    }
+    50% {
+        transform: translateX(25%) translateY(5%);
+    }
+    100% {
+        transform: translateX(-25%) translateY(-5%);
+    }
+}
+
+.link {
+    font-size: 8vw;
+    margin: 20px 0;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    color: black;
+    position: relative;
+    transition: color 0.3s ease;
+}

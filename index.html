@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="indexstyle.css">
+</head>
+<body>
+    <div class="background"></div>
+    <div class="gray-wash"></div>
+    <img src="cybersahas.png" alt="Logo" id="bouncing-icon" class="icon">
+    <div class="container">
+        <div class="clock-container">
+            <div id="clock" class="box"></div>
+            <div id="timezone" class="box"></div>
+        </div>
+        <div class="message box">Enter password to enter site</div>
+        <div class="password-container box">
+            <input type="password" id="password" placeholder="Enter password" />
+        </div>
+        <div id="hint" class="hint">Hint: password</div>
+    </div>
+    <script>
+        // Update the clock and timezone
+        function updateClock() {
+            const now = new Date();
+            const options = { hour: '2-digit', minute: '2-digit', second: '2-digit' };
+            const timeString = now.toLocaleTimeString([], options);
+            const timezoneString = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+            document.getElementById('clock').textContent = timeString;
+            document.getElementById('timezone').textContent = timezoneString;
+        }
+
+        setInterval(updateClock, 1000);
+
+        // Password checking
+        const correctPassword = "password";
+        document.getElementById('password').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                if (e.target.value === correctPassword) {
+                    window.location.href = "home2.html"; // Redirect to the main portfolio page
+                } else {
+                    alert("Incorrect password. Try again.");
+                }
+            }
+        });
+
+        // Hint fading in and out
+        const hint = document.getElementById('hint');
+        let opacity = 1;
+        let fading = true;
+        setInterval(() => {
+            if (fading) {
+                opacity -= 0.05;
+                if (opacity <= 0) {
+                    fading = false;
+                }
+            } else {
+                opacity += 0.05;
+                if (opacity >= 1) {
+                    fading = true;
+                }
+            }
+            hint.style.opacity = opacity;
+        }, 100);
+
+        // Bouncing effect when the icon is clicked
+        const bouncingIcon = document.getElementById('bouncing-icon');
+        let bouncing = false;
+        let xDirection = 1;
+        let yDirection = 1;
+        const speed = 3.5;
+        let xPos = bouncingIcon.offsetLeft;
+        let yPos = bouncingIcon.offsetTop;
+
+        function bounce() {
+            const iconWidth = bouncingIcon.offsetWidth;
+            const iconHeight = bouncingIcon.offsetHeight;
+            const maxWidth = window.innerWidth - iconWidth;
+            const maxHeight = window.innerHeight - iconHeight;
+
+            xPos += xDirection * speed;
+            yPos += yDirection * speed;
+
+            if (xPos <= 0 || xPos >= maxWidth) {
+                xDirection *= -1;
+            }
+            if (yPos <= 0 || yPos >= maxHeight) {
+                yDirection *= -1;
+            }
+
+            bouncingIcon.style.left = `${xPos}px`;
+            bouncingIcon.style.top = `${yPos}px`;
+
+            if (bouncing) {
+                requestAnimationFrame(bounce);
+            }
+        }
+
+        bouncingIcon.addEventListener('click', function() {
+            bouncing = !bouncing;
+            if (bouncing) {
+                bounce();
+            }
+        });
+    </script>
+</body>
+</html>

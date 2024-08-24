@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  line-height: 1.5;
+  background-color: #1a1a1a;
+  color: #d3d3d3;
+  overflow: hidden;
+  user-select: none;
+  scroll-behavior: smooth;
+  overflow: hidden;
+}
+
+nav.glass {
+    width: 90%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5000;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    padding: 8px 15px;  /* Reduced padding for a slimmer appearance */
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    margin: 0;  /* Ensures no additional margin is added */
+    padding: 0;  /* Ensures no additional padding is added */
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;  /* Slightly reduced margin to fit within the slimmer nav bar */
+}
+
+nav ul li a {
+    color: #d3d3d3;
+    text-decoration: none;
+    font-size: 1.2em;
+    padding: 10px;  /* Maintains padding for clickable area */
+    transition: background 1s ease, color 1s ease;
+}
+
+nav ul li a:hover, nav ul li a:focus, nav ul li a:active {
+    background: linear-gradient(to right, #212ff3, #826fab, #ff6b08, #eeb544);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border-radius: 10px;
+}
+
+
+
+.contact-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 120px 20px 20px 20px;
+    text-align: left;
+    width: 100%;
+}
+
+.contact-header {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+.contact-header h1 {
+    font-size: 4em;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.contact-form {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 40px;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #555;
+    border-radius: 5px;
+    background: #2a2a2a;
+    color: #d3d3d3;
+}
+
+.contact-form button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: #ff6b08;
+    color: white;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.contact-form button:hover {
+    background: #eeb544;
+}
+
+.ladder-blocks {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 10px;
+}
+
+.ladder-block {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 10px;
+}
+
+.ladder-block img {
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}

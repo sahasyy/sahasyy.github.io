@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    font-family: 'Inter', sans-serif;
+    overflow: hidden;
+    position: relative;
+    background: radial-gradient(200% 100% at bottom center,green,rgb(255, 103, 129),#1B2947, black); 
+    background: radial-gradient(220% 105% at top center,black 20%,#070a10 40%,#080d16 65%, #1B2947
+    );
+    background-attachment: fixed; 
+}
+
+nav.glass {
+    width: 90%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5000;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    padding: 10px 15px;  /* Reduced padding for a slimmer appearance */
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    margin: 0;  /* Ensures no additional margin is added */
+    padding: 0;  /* Ensures no additional padding is added */
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;  /* Slightly reduced margin to fit within the slimmer nav bar */
+}
+
+nav ul li a {
+    color: #d3d3d3;
+    text-decoration: none;
+    font-size: 1.2em;
+    padding: 10px;  /* Maintains padding for clickable area */
+    transition: background 1s ease, color 1s ease;
+}
+
+nav ul li a:hover, nav ul li a:focus, nav ul li a:active {
+    background: linear-gradient(to right, #212ff3, #826fab, #ff6b08, #eeb544);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border-radius: 10px;
+}
+
+
+.about-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 150px 20px 20px 20px;
+    position: relative;
+    z-index: 10;
+}
+
+.about-text {
+    flex: 1;
+    padding: 20px;
+    color: white;
+}
+
+.about-text h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    font-size: 1.2em;
+    line-height: 1.6;
+}
+
+.about-image {
+    flex: 1;
+    padding: 0px;
+    text-align: center;
+}
+
+.about-image img {
+    max-width: 80%;
+    border-radius: 10px;
+}
+
+.stars {
+    transform: perspective(500px);
+    transform-style: preserve-3d;
+    position: absolute;
+    bottom: 0;
+    perspective-origin: 50% 100%;
+    left: 50%;
+    animation: rotate 90s infinite linear;
+    z-index: 0;
+}
+
+.star {
+    width: 2px;
+    height: 2px;
+    background: #F7F7B6;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform-origin: 0 0 -300px;
+    transform: translate3d(0,0,-300px);
+    backface-visibility: hidden;
+}
+
+@keyframes rotate {
+    0% {
+        transform: perspective(400px) rotateZ(20deg) rotateX(-40deg) rotateY(0);
+    } 
+    100% {
+        transform: perspective(400px) rotateZ(20deg) rotateX(-40deg) rotateY(-360deg);
+    }
+}
