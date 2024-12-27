@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sahas Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-content">
+            <div class="nav-inner">
+                <img src="cybersahas.png" alt="CyberSahas" class="logo" width="24" height="24">
+                <div class="social-links">
+                    <a href="https://github.com/Sahasyy" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="social-link">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/sahassharma" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="social-link">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="mailto:sahasyyy@gmail.com" aria-label="Email" class="social-link">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="/resume.pdf" aria-label="Resume" class="social-link">
+                        <i class="fas fa-file-alt"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Terminal Window -->
+        <div class="terminal">
+            <div class="terminal-header">
+                <div class="terminal-buttons">
+                    <div class="terminal-button red"></div>
+                    <div class="terminal-button yellow"></div>
+                    <div class="terminal-button green"></div>
+                </div>
+                <div class="terminal-title">
+                    <i class="fas fa-terminal"></i>
+                    <span>sahas@portfolio: ~/projects</span>
+                </div>
+                <div class="spacer"></div>
+            </div>
+            <div class="terminal-content" id="terminal-content">
+                <!-- Terminal content will be populated by JavaScript -->
+            </div>
+        </div>
+
+        <!-- About Me Section -->
+        <div class="about-section hidden" id="about-section">
+            <div class="about-content">
+                <h2 class="section-title">Just Something About Me</h2>
+                <p class="about-text">
+                    Hey there! I'm Sahas Sharma, a junior in Computer Science at Univeristy of Texas at Dallas 💻. 
+                    I'm interested in AI/ML research and turning my ideas into reality—like leading NeuroVision 
+                    or pushing limits at hackathons 🌐 or even building crazy side projects. When I'm not coding, 
+                    you'll find me listening to Ocean Alley 🎶, petting every doggo I meet 🐶, or hunting down 
+                    the best eats in town 🍔🍲. Let's make something awesome together 🚀!
+                </p>
+            </div>
+            <div class="about-image">
+                <img src="cybersahas24.png" alt="Sahas Sharma">
+            </div>
+        </div>
+
+        <!-- Projects Section -->
+        <div class="projects-section hidden" id="projects-section"></div>
+        
+
+        <!-- Interests Section -->
+        <div class="interests-section hidden" id="interests-section">
+            <h2 class="section-title">Other iterests that i have :)</h2>
+            <div class="interests-grid" id="interests-grid"></div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-left">
+                <i class="fas fa-heart heart-icon"></i>
+                <span>Made by Sahasyy</span>
+            </div>
+            <div class="footer-right">
+                <div class="status">
+                    <span class="status-dot"></span>
+                    <span>STATUS: ONLINE</span>
+                </div>
+                <div class="uptime">
+                    <span class="uptime-dot"></span>
+                    <span>UPTIME: 1337d</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
